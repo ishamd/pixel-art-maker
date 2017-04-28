@@ -1,0 +1,63 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: grey;
+  border: 0px solid black;
+}
+
+.canvas-cell {
+  background-color: white;
+  border: 0.05px solid grey;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.empty-cell {
+  background-color: white;
+  border: 0.05px solid grey;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+#container {
+  border: 5px solid red;
+  display: inline-block;
+  width: 600px;
+  height: 400px;
+}
+
+#color-palette {
+  border: 5px solid green;
+  display: inline-block;
+  width: 600px;
+}
+
+#additional-info{
+  display: ;
+  width: ;
+}
+
+.indicator-text {
+  border: 2px solid black;
+}
+
+.palette-cell {
+  background-color: white;
+  border: 0.05px solid grey;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.clear-btn {
+  width: 100px;
+}
+
+.myHeader {
+  border: 3px solid black;
+
+}
