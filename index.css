@@ -2,13 +2,34 @@ body {
   width: 600px;
   margin: 0 auto;
   text-align: center;
-  background-color: grey;
+  background-color: PapayaWhip;
   border: 0px solid black;
+}
+
+#canvas {
+  border: 5px solid grey;
+  background-color: LightGray;
+  display: inline-block;
+  width: 600px;
+  height: 400px;
+}
+
+#color-palette {
+  border: 5px solid #424141;
+  display: inline-block;
+  width: 600px;
+  background-color: snow;
+}
+
+#additional-info{
+  border: ;
+  height: 80px;
+  width: 600px;
 }
 
 .canvas-cell {
   background-color: white;
-  border: 0.05px solid grey;
+  border: 0.05px solid Gainsboro;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -22,26 +43,11 @@ body {
   height: 20px;
 }
 
-#container {
-  border: 5px solid red;
-  display: inline-block;
-  width: 600px;
-  height: 400px;
-}
-
-#color-palette {
-  border: 5px solid green;
-  display: inline-block;
-  width: 600px;
-}
-
-#additional-info{
-  display: ;
-  width: ;
-}
-
 .indicator-text {
-  border: 2px solid black;
+  display: inline-block;
+  float: left;
+  font-size: 140%;
+  vertical-align: middle;
 }
 
 .palette-cell {
@@ -53,11 +59,19 @@ body {
   border-radius: 50%;
 }
 
-.clear-btn {
-  width: 100px;
+.indicator-cell {
+  background-color: white;
+  border: 0.05px solid grey;
+  display: inline-block;
+  float: left;
+  width: 30px;
+  height: 20px;
+  border-radius: ;
 }
 
-.myHeader {
-  border: 3px solid black;
-
+.clear-btn {
+  display: inline-block;
+  font-size: 100%;
+  width: 100px;
+  float: right;
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <div id="container"></div>
+    <div id="canvas"></div>
     <div id="color-palette"></div>
     <div id="additional-info"></div>
   </body>
@@ -17,77 +17,70 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  // let header = createElement('header');
-  let container = document.getElementById('container');
+  let canvas = document.getElementById('canvas');
   let color_palette = document.getElementById('color-palette');
   let additional_info = document.getElementById('additional-info');
   let colors = ['navy', 'blue', 'aqua', 'teal', 'olive', 'green', 'lime', 'yellow', 'orange', 'red', 'maroon', 'fuchsia', 'purple', 'black', 'silver', 'white'];
   let brushColor = 'red';
-  let mouseDown = false;
-
-  // Add a <h1> with a page title
-  // Add a canvas div that encompasses the grid
-  // Add eventlistener to the canvas for mousedown
-
-
 
   function createCanvasCell() {
     let div = document.createElement('div');
-    // creates new div element
     div.className = 'canvas-cell';
-    // assigns new div element the className we pass into function
-    div.addEventListener('mousedown', function() {
+    div.addEventListener('click', function() {
       div.style.backgroundColor = brushColor;
-      mouseDown = true;
     })
-    // div.addEventListener('mouseenter', function() {
-    //   div.style.backgroundColor = brushColor;
-    // })
-    // div.addEventListener('mouseup', function() {
-    //   div.style.backgroundColor = brushColor;
-    //   mouseDown = false;
-    // })
     return div;
   }
 
   function createCanvas() {
     for (let i = 0; i < 432; i++) {
-      // adds new blank grids into container div
       let pixel = createCanvasCell();
-      container.appendChild(pixel)
+      canvas.appendChild(pixel)
     }
   }
 
   createCanvas();
 
-  // function colorIndicatorText(className) {
-  //   let paragraph = document.createElement('p');
-  //   paragraph.className = className;
-  //   paragraph.innerHTML = 'Current color: ';
-  //   additional_info.appendChild(paragraph);
-  // }
-  //
-  // colorIndicatorText('indicator-text');
+  function colorIndicatorText(className) {
+    let paragraph = document.createElement('p');
+    paragraph.className = className;
+    paragraph.innerHTML = 'Current color: ';
+    additional_info.appendChild(paragraph);
+  }
+
+  colorIndicatorText('indicator-text');
 
   function createPaletteCell() {
-    // creates new blank grids in color palette
     let div = document.createElement('div');
     div.className = 'palette-cell';
     div.addEventListener('click', function() {
       brushColor = div.style.backgroundColor;
+    })
+    div.addEventListener('click', function() {
+      let indicator = document.querySelector('.indicator-cell');
+      indicator.style.backgroundColor = brushColor;
     })
     return div;
   }
 
   function createColorPalette() {
     for (let j = 0; j < colors.length; j++) {
-      let test = createPaletteCell();
-      color_palette.appendChild(test);
-      test.style.backgroundColor = colors[j];
+      let cell = createPaletteCell();
+      color_palette.appendChild(cell);
+      cell.style.backgroundColor = colors[j];
     }
   }
 
   createColorPalette();
+
+  function createColorIndicator() {
+    let div = document.createElement('div');
+    div.className = 'indicator-cell';
+    div.style.backgroundColor = brushColor;
+    additional_info.appendChild(div)
+  }
+
+  createColorIndicator();
 
   function reloadButton() {
     let btn = document.createElement('button');
